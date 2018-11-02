@@ -1,0 +1,8 @@
+# Command Line Scripts
+
+
+cat pages | while read i; do echo $i; curl -s https://groupworksdeck.org/patterns/$i > html/$i; done
+
+cat pages | while read i; do echo $i; sh scrape.sh $i; done
+
+ls images | while read i; do echo $i; cp images/$i/`ls images/$i` ~/.wiki/group.localhost/assets/$i.jpg; done
