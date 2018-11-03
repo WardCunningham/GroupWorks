@@ -27,7 +27,11 @@ end
 # todo: add story and provenance
 def create title, story
   {'type' => 'create', 'id' => random, 'date' => Time.now, 'item' => {'title' => title, 'story' => story}}
-end 
+end
+
+def item type, text
+  {'type' => type, 'text' => text, 'id' => random()}
+end
 
 def paragraph text
   {'type' => 'paragraph', 'text' => text, 'id' => random()}
@@ -36,6 +40,11 @@ end
 def related titles
   bullets = titles.map{|title| "- [[#{title}]]"}.join("\n")
   {'type' => 'markdown', 'text' => bullets, 'id' => random()}
+end
+
+def graphed titles
+  bullets = titles.map{|title| "- [[#{title}]]"}.join("\n")
+  {'type' => 'markdown', 'graph' => true, 'text' => bullets, 'id' => random()}
 end
 
 def image name
@@ -100,8 +109,8 @@ cards.each do |card|
   page card['name'], [
     paragraph(card['heart']),
     image(name),
-    related(card['related']),
-    paragraph("See more [[#{card['category']}]]"),
+    graphed(card['related']),
+    paragraph("See more [[#{card['category']}]]")
   ], credits(card['name'])
   piles[card['category']].push card['name']
 end
@@ -118,7 +127,8 @@ categories.each do |category|
   page category['name'], [
     paragraph(category['description']),
     related(piles[category['name']]),
-    paragraph("See all [[Categories]]")
+    paragraph("See all [[Categories]]"),
+    item('transport', 'GRAPH POST http://eu.wiki.org:4010/graphviz')
   ], @cred
 end
 
