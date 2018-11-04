@@ -2,6 +2,9 @@
 # usage: cd GroupWorks; sh convert.rb
 
 require 'json'
+require 'base64'
+
+@site = '/Users/ward/.wiki/group.localhost'
 
 def random
   (1..16).collect {(rand*16).floor.to_s(16)}.join ''
@@ -26,7 +29,7 @@ end
 
 # todo: add story and provenance
 def create title, story
-  {'type' => 'create', 'id' => random, 'date' => Time.now, 'item' => {'title' => title, 'story' => story}}
+  {'type' => 'create', 'id' => random, 'date' => Time.now.to_i*1000, 'item' => {'title' => title, 'story' => story}}
 end
 
 def item type, text
@@ -52,10 +55,16 @@ def image name
   {'type' => 'html', 'text' => tag, 'id' => random()}
 end
 
+def icon name
+  image = File.read "category-images/#{name.split(' ')[0].downcase} category icon.jpg"
+  data = 'data:image/jpg;base64,' + Base64.strict_encode64(image)
+  item 'html', "<div style=\"float:right;\"><img width=100px; src=#{data}></div>"
+end
+
 def page title, story, provenance=nil
   page = {'title' => title, 'story' => story, 'journal' => [create(title, story)]}
   page['journal'][0]['provenance'] = provenance if provenance
-  File.open("/Users/ward/.wiki/group.localhost/pages/#{slug(title)}", 'w') do |file| 
+  File.open("#{@site}/pages/#{slug(title)}", 'w') do |file|
     file.write JSON.pretty_generate(page)
   end
 end
@@ -125,6 +134,7 @@ end
 categories = JSON.parse File.read 'categories.json'
 categories.each do |category|
   page category['name'], [
+    icon(category['name']),
     paragraph(category['description']),
     related(piles[category['name']]),
     paragraph("See all [[Categories]]"),
@@ -139,4 +149,6 @@ page "Categories", [
   paragraph("We have divided up the patterns into this set of nine categories. Each category represents a group need addressed by that set of patterns."),
   related(categories.map{|category| category['name']})
 ], @cred
+
+`rm -f #{@site}/status/sitemap.*`
 
