@@ -1,0 +1,134 @@
+{
+  "title": "Pattern Category Diagram",
+  "story": [
+    {
+      "type": "paragraph",
+      "id": "e041e3e9b0295e8f",
+      "text": "We draw patterns within a category, patterns they reference, and the categories containing the referenced patterns."
+    },
+    {
+      "type": "graphviz",
+      "id": "4f44f0b8783ae716",
+      "text": "DOT strict graph\n  rankdir=LR\n  node [shape=box style=filled fillcolor=bisque penwidth=3 color=brown]\n  HERE NODE\n    WHERE /^- /\n      node [fillcolor=palegreen]\n      LINKS HERE -- NODE\n        node [fillcolor=palegreen penwidth=1 color=black]\n        HERE NODE\n          WHERE graph\n            LINKS NODE -- HERE\n              HERE NODE\n                node [fillcolor=bisque]\n                WHERE /^See more/\n                  node [fillcolor=bisque]\n                  LINKS NODE -- HERE\n              ELSE\n                node [fillcolor=lightgray]\n                FAKE NODE -- HERE\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "f255c8eaa8d06d63",
+      "text": "Draw these diagrams on category summary pages using the Graphviz transclusion notation."
+    },
+    {
+      "type": "code",
+      "id": "7d959a0a396bf823",
+      "text": "DOT FROM pattern-category-diagram"
+    },
+    {
+      "type": "paragraph",
+      "id": "5590285e1e086e65",
+      "text": "See all [[Categories]]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Pattern Category Diagram",
+        "story": []
+      },
+      "date": 1552826677278
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "e041e3e9b0295e8f"
+      },
+      "id": "e041e3e9b0295e8f",
+      "type": "add",
+      "date": 1552826699262
+    },
+    {
+      "type": "edit",
+      "id": "e041e3e9b0295e8f",
+      "item": {
+        "type": "paragraph",
+        "id": "e041e3e9b0295e8f",
+        "text": "We draw patterns within a category, patterns they reference, and the categories containing the referenced patterns."
+      },
+      "date": 1552826806455
+    },
+    {
+      "type": "add",
+      "item": {
+        "type": "graphviz",
+        "id": "4f44f0b8783ae716",
+        "text": "DOT strict graph\n  rankdir=LR\n  node [shape=box style=filled fillcolor=bisque penwidth=3 color=brown]\n  HERE NODE\n    WHERE /^- /\n      node [fillcolor=palegreen]\n      LINKS HERE -- NODE\n        node [fillcolor=palegreen penwidth=1 color=black]\n        HERE NODE\n          WHERE graph\n            LINKS NODE -- HERE\n              HERE NODE\n                node [fillcolor=bisque]\n                WHERE /^See more/\n                  node [fillcolor=bisque]\n                  LINKS NODE -- HERE\n              ELSE\n                node [fillcolor=lightgray]\n                FAKE NODE -- HERE\n"
+      },
+      "after": "e041e3e9b0295e8f",
+      "id": "4f44f0b8783ae716",
+      "date": 1552826820297
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "5590285e1e086e65"
+      },
+      "id": "5590285e1e086e65",
+      "type": "add",
+      "after": "4f44f0b8783ae716",
+      "date": 1552826859086
+    },
+    {
+      "type": "edit",
+      "id": "5590285e1e086e65",
+      "item": {
+        "type": "paragraph",
+        "id": "5590285e1e086e65",
+        "text": "See all [[Categories]]"
+      },
+      "date": 1552826869757
+    },
+    {
+      "type": "add",
+      "id": "f255c8eaa8d06d63",
+      "item": {
+        "type": "paragraph",
+        "id": "f255c8eaa8d06d63",
+        "text": "Draw these diagrams on category summary pages using the Graphviz transclusion notation."
+      },
+      "after": "5590285e1e086e65",
+      "date": 1552827603335
+    },
+    {
+      "item": {
+        "type": "code",
+        "id": "7d959a0a396bf823",
+        "text": "DOT FROM pattern-category-diagram"
+      },
+      "id": "7d959a0a396bf823",
+      "type": "add",
+      "after": "f255c8eaa8d06d63",
+      "date": 1552827605772
+    },
+    {
+      "type": "edit",
+      "id": "7d959a0a396bf823",
+      "item": {
+        "type": "code",
+        "id": "7d959a0a396bf823",
+        "text": "DOT FROM pattern-category-diagram"
+      },
+      "date": 1552827626042
+    },
+    {
+      "type": "move",
+      "order": [
+        "e041e3e9b0295e8f",
+        "4f44f0b8783ae716",
+        "f255c8eaa8d06d63",
+        "7d959a0a396bf823",
+        "5590285e1e086e65"
+      ],
+      "id": "5590285e1e086e65",
+      "date": 1552827632989
+    }
+  ]
+}

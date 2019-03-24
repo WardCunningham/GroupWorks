@@ -1,5 +1,5 @@
 # construct pages for groupworks pattern language
-# usage: cd GroupWorks; sh convert.rb
+# usage: cd GroupWorks; ruby convert.rb
 
 require 'json'
 require 'base64'
@@ -138,7 +138,7 @@ categories.each do |category|
     paragraph(category['description']),
     related(piles[category['name']]),
     paragraph("See all [[Categories]]"),
-    item('transport', 'GRAPH POST http://eu.wiki.org:4010/graphviz')
+    item('graphviz', 'DOT FROM pattern-category-diagram')
   ], @cred
 end
 
@@ -150,5 +150,6 @@ page "Categories", [
   related(categories.map{|category| category['name']})
 ], @cred
 
+`cp default-pages/* #{@site}/pages`
 `rm -f #{@site}/status/sitemap.*`
 
