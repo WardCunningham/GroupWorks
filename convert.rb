@@ -51,7 +51,7 @@ def graphed titles
 end
 
 def image name
-  tag = "<img width=100% src=http:/assets/postcards/#{name}.jpg>"
+  tag = "<img width=100% src=http://tree.tries.fed.wiki/assets/postcards/#{name}.jpg>"
   {'type' => 'html', 'text' => tag, 'id' => random()}
 end
 
@@ -119,6 +119,7 @@ cards.each do |card|
     paragraph(card['heart']),
     image(name),
     graphed(card['related']),
+    item('graphviz', "DOT FROM pattern-neighbor-diagram"),
     paragraph("See more [[#{card['category']}]]")
   ], credits(card['name'])
   piles[card['category']].push card['name']

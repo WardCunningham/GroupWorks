@@ -4,3 +4,5 @@ old
 *.webloc
 *.zip
 *.json
+pages
+.DS_Store

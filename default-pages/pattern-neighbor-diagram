@@ -1,25 +1,25 @@
 {
-  "title": "Pattern Category Diagram",
+  "title": "Pattern Neighbor Diagram",
   "story": [
     {
       "type": "paragraph",
       "id": "e041e3e9b0295e8f",
-      "text": "We draw patterns within a category, patterns they reference, and the categories containing the referenced patterns."
+      "text": "We draw related patterns and then their relations beyond that."
     },
     {
       "type": "graphviz",
       "id": "4f44f0b8783ae716",
-      "text": "DOT strict graph\n  rankdir=LR\n  node [shape=box style=filled fillcolor=bisque]\n  HERE NODE\n    WHERE /^- /\n      node [fillcolor=palegreen]\n      LINKS HERE -- NODE\n        HERE\n          WHERE graph\n            node [fillcolor=white]\n            LINKS HERE -- NODE\n\n"
+      "text": "DOT strict graph\nrankdir=LR\nnode [shape=box style=filled fillcolor=palegreen]\n  HERE NODE\n    WHERE graph\n      LINKS HERE -- NODE\n        HERE NODE\n          node [fillcolor=white]\n          WHERE graph\n            LINKS HERE -- NODE\n"
     },
     {
       "type": "paragraph",
       "id": "f255c8eaa8d06d63",
-      "text": "Draw these diagrams on category summary pages using the Graphviz transclusion notation."
+      "text": "Draw these diagrams on pattern pages using the Graphviz transclusion notation."
     },
     {
       "type": "code",
       "id": "7d959a0a396bf823",
-      "text": "DOT FROM pattern-category-diagram"
+      "text": "DOT FROM pattern-neighbor-diagram"
     },
     {
       "type": "paragraph",
@@ -51,7 +51,7 @@
       "item": {
         "type": "paragraph",
         "id": "e041e3e9b0295e8f",
-        "text": "We draw patterns within a category, patterns they reference, and the categories containing the referenced patterns."
+        "text": "We draw related patterns and then their relations beyond that."
       },
       "date": 1552826806455
     },
@@ -60,7 +60,7 @@
       "item": {
         "type": "graphviz",
         "id": "4f44f0b8783ae716",
-        "text": "DOT strict graph\n  rankdir=LR\n  node [shape=box style=filled fillcolor=bisque penwidth=3 color=brown]\n  HERE NODE\n    WHERE /^- /\n      node [fillcolor=palegreen]\n      LINKS HERE -- NODE\n        node [fillcolor=palegreen penwidth=1 color=black]\n        HERE NODE\n          WHERE graph\n            LINKS NODE -- HERE\n              HERE NODE\n                node [fillcolor=bisque]\n                WHERE /^See more/\n                  node [fillcolor=bisque]\n                  LINKS NODE -- HERE\n              ELSE\n                node [fillcolor=lightgray]\n                FAKE NODE -- HERE\n"
+        "text": "DOT strict graph\nrankdir=LR\nnode [shape=box style=filled fillcolor=palegreen]\n  HERE NODE\n    WHERE graph\n      LINKS HERE -- NODE\n        HERE NODE\n          node [fillcolor=white]\n          WHERE graph\n            LINKS HERE -- NODE\n"
       },
       "after": "e041e3e9b0295e8f",
       "id": "4f44f0b8783ae716",
@@ -92,7 +92,7 @@
       "item": {
         "type": "paragraph",
         "id": "f255c8eaa8d06d63",
-        "text": "Draw these diagrams on category summary pages using the Graphviz transclusion notation."
+        "text": "Draw these diagrams on pattern pages using the Graphviz transclusion notation."
       },
       "after": "5590285e1e086e65",
       "date": 1552827603335
@@ -101,7 +101,7 @@
       "item": {
         "type": "code",
         "id": "7d959a0a396bf823",
-        "text": "DOT FROM pattern-category-diagram"
+        "text": "DOT FROM pattern-neighbor-diagram"
       },
       "id": "7d959a0a396bf823",
       "type": "add",
@@ -129,26 +129,6 @@
       ],
       "id": "5590285e1e086e65",
       "date": 1552827632989
-    },
-    {
-      "type": "edit",
-      "id": "4f44f0b8783ae716",
-      "item": {
-        "type": "graphviz",
-        "id": "4f44f0b8783ae716",
-        "text": "DOT strict graph\n  rankdir=LR\n  node [shape=box style=filled fillcolor=bisque]\n  HERE NODE\n    WHERE /^- /\n      node [fillcolor=palegreen]\n      LINKS HERE -- NODE\n\n"
-      },
-      "date": 1553576399963
-    },
-    {
-      "type": "edit",
-      "id": "4f44f0b8783ae716",
-      "item": {
-        "type": "graphviz",
-        "id": "4f44f0b8783ae716",
-        "text": "DOT strict graph\n  rankdir=LR\n  node [shape=box style=filled fillcolor=bisque]\n  HERE NODE\n    WHERE /^- /\n      node [fillcolor=palegreen]\n      LINKS HERE -- NODE\n        HERE\n          WHERE graph\n            node [fillcolor=white]\n            LINKS HERE -- NODE\n\n"
-      },
-      "date": 1553576506815
     }
   ]
 }
