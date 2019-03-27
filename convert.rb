@@ -138,8 +138,8 @@ categories.each do |category|
     icon(category['name']),
     paragraph(category['description']),
     related(piles[category['name']]),
-    paragraph("See all [[Categories]]"),
-    item('graphviz', 'DOT FROM pattern-category-diagram')
+    item('graphviz', 'DOT FROM pattern-category-diagram'),
+    paragraph("See all [[Categories]]")
   ], @cred
 end
 
